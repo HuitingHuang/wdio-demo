@@ -1,5 +1,6 @@
 import fs from 'fs'
 import allure from 'allure-commandline'
+import RerunService from 'wdio-rerun-service';
 
 export const config = {
     //
@@ -112,8 +113,12 @@ export const config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: 
-    ['gmail', 'rerun'],
+    //e.g.['gmail', 'rerun']
+    services:[
+        [RerunService, {
+            rerunScriptPath: './rerun.sh'
+        }]
+    ] ,
 
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber

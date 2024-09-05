@@ -1,1 +1,1 @@
-DISABLE_RERUN=true npx wdio run  --spec=file:///Users/huiting.huang/Documents/Job/Exercise/wdio-demo/test/specs/loginTests/test.login.error/test.login.error.js --spec=file:///Users/huiting.huang/Documents/Job/Exercise/wdio-demo/test/specs/test.orangeHRM.js --spec=file:///Users/huiting.huang/Documents/Job/Exercise/wdio-demo/test/specs/loginTests/test.login.normal/test.login.normal.js
+DISABLE_RERUN=true npx wdio run ./wdio.conf.js --spec=file:///Users/huiting.huang/Documents/Job/Exercise/wdio-demo/test/specs/loginTests/test.login.error/test.login.error.js

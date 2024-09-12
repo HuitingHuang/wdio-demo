@@ -29,6 +29,12 @@ export const config = {
     specs: process.env.SPEC_FILES && process.env.SPEC_FILES.length > 0 ? process.env.SPEC_FILES.split(',') : ['./test/specs/**/*.js'],
     // Patterns to exclude.
     exclude: process.env.EXCLUDE_FILES && process.env.EXCLUDE_FILES.length > 0 ? process.env.EXCLUDE_FILES.split(',') : [],
+    // define specific suites
+    suites: {
+        login:[
+            './test/specs/loginTests/**/*.js'
+        ]
+    },
     //
     // ============
     // Capabilities
@@ -116,6 +122,7 @@ export const config = {
     //e.g.['gmail', 'rerun']
     services:[
         [RerunService, {
+            rerunDataDir: './rerun-results',
             rerunScriptPath: './rerun.sh'
         }]
     ] ,

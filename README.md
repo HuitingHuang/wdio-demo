@@ -13,6 +13,9 @@ To run specific tests by tags: <br>
 To run specific tests by file path: <br>
 <code>npm run test -- --spec ./test/specs/loginTests/test.login.error/test.login.error.js</code>
 
+To run specific test suites: <br>
+<code>npm run test -- --suite login</code>
+
 To open report: <br>
 <code>npm run report</code>
 [@wdio/allure-reporter](https://github.com/webdriverio/webdriverio/tree/main/packages/wdio-allure-reporter) is applied to generated reports automatically(see the configuration file)

@@ -3,3 +3,6 @@ node_modules/
 allure-report
 allure-results
 rerun-results
+rerun.sh
+
+

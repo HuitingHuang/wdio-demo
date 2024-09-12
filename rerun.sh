@@ -1,1 +1,0 @@
-DISABLE_RERUN=true npx wdio run ./wdio.conf.js --spec=file:///Users/huiting.huang/Documents/Job/Exercise/wdio-demo/test/specs/loginTests/test.login.error/test.login.error.js

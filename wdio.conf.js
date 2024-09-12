@@ -1,4 +1,3 @@
-import fs from 'fs'
 import allure from 'allure-commandline'
 import RerunService from 'wdio-rerun-service';
 
@@ -26,7 +25,7 @@ export const config = {
     // e.g.[
         //'./test/specs/**/*.js'
     //],
-    specs: process.env.SPEC_FILES && process.env.SPEC_FILES.length > 0 ? process.env.SPEC_FILES.split(',') : ['./test/specs/**/*.js'],
+    specs: process.env.SPEC_FILES && process.env.SPEC_FILES.length > 0 ? process.env.SPEC_FILES.split(',') : ['./test/specs/**/*.test.js'],
     // Patterns to exclude.
     exclude: process.env.EXCLUDE_FILES && process.env.EXCLUDE_FILES.length > 0 ? process.env.EXCLUDE_FILES.split(',') : [],
     // define specific suites
@@ -228,21 +227,8 @@ export const config = {
      * Hook that gets executed before the suite starts
      * @param {object} suite suite details
      */
-    beforeSuite: function (suite) {
-        const testDataFilePath = suite.file.replace('.js', '.testData.json');
-        
-        fs.readFile(testDataFilePath, function(err, data){
-            if (err) {
-                console.error('Error reading file:', err);
-                return;
-            }
-            try {
-                browser.testData = JSON.parse(data);
-            } catch (parseErr) {
-                console.error('Error parsing JSON:', parseErr);
-            }
-        });
-    },
+    // beforeSuite: function (suite) {
+    // },
     /**
      * Function to be executed before a test (in Mocha/Jasmine) starts.
      */

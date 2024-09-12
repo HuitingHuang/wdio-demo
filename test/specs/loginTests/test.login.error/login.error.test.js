@@ -1,8 +1,11 @@
 import logger from '@wdio/logger'
-const log = logger('myLoginTests')
 import { expect } from '@wdio/globals'
 import { LoginPage } from '../../../pageobjects/login.page.js'
+import { testData } from './login.error.testData.js'
+
+const log = logger('myLoginTests')
 const loginPage = new LoginPage()
+const {inputValues, expectedValues} = testData;
 
 describe('OrangeHRM login tests - @loginOHRM', () => {
 
@@ -12,9 +15,9 @@ describe('OrangeHRM login tests - @loginOHRM', () => {
         log.info('Go to the login page successfully');
 
         log.info('2. Enter the username and password and login');
-        await loginPage.login(browser.testData.inputValues.username, browser.testData.inputValues.password);
+        await loginPage.login(inputValues.username, inputValues.password);
         let alertText = await loginPage.alertText.getText();
-        let expectedAlertText = browser.testData.expectedValues.alertText;
+        let expectedAlertText = expectedValues.alertText;
         await expect(alertText).toBe(expectedAlertText);
         log.info("The error message shows successfully");
     } )

@@ -1,10 +1,12 @@
 import logger from '@wdio/logger'
-const log = logger('myLoginTests')
 import { expect } from '@wdio/globals'
 import { LoginPage } from '../../../pageobjects/login.page.js'
 import { DashboardPage } from '../../../pageobjects/dashboard.page.js'
+import { testData } from './login.normal.testData.js'
+const log = logger('myLoginTests')
 const loginPage = new LoginPage()
 const dashboardPage = new DashboardPage()
+const { inputValues, expectedValues } = testData;
 
 describe('OrangeHRM login tests - @loginOHRM', () => {
     
@@ -14,9 +16,9 @@ describe('OrangeHRM login tests - @loginOHRM', () => {
         log.info('Go to the login page successfully');
         
         log.info('2. Enter the username and password and login');
-        await loginPage.login(browser.testData.inputValues.username, browser.testData.inputValues.password);
+        await loginPage.login(inputValues.username, inputValues.password);
         let pageTitle = await dashboardPage.pageTitle.getText();
-        let expectedPageTitle = browser.testData.expectedValues.pageTitle;
+        let expectedPageTitle = expectedValues.pageTitle;
         await expect(pageTitle).toBe(expectedPageTitle);
         log.info("Login into the account successfully");
     } );

@@ -1,4 +1,4 @@
-{
+export const testData = {
     "inputValues" : {
         "username": "Admin", 
         "password": "admin123"

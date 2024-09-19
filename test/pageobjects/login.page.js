@@ -1,10 +1,9 @@
 import { $ } from '@wdio/globals'
-import { Page } from './page';
 
 /**
  * sub page containing specific selectors and methods for a specific page
  */
-export class LoginPage extends Page {
+export class LoginPage {
     /**
      * define selectors using getter methods
      */
@@ -37,7 +36,7 @@ export class LoginPage extends Page {
     /**
      * overwrite specific options to adapt it to page object
      */
-    open () {
-        return super.open('auth/login');
+    async open () {
+        return await browser.url('/web/index.php/auth/login');
     }
 }

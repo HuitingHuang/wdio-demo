@@ -1,9 +1,7 @@
-import logger from '@wdio/logger'
-import { expect } from '@wdio/globals'
 import { LoginPage } from '../../../pageobjects/login.page.js'
 import { DashboardPage } from '../../../pageobjects/dashboard.page.js'
 import { testData } from './login.normal.testData.js'
-const log = logger('myLoginTests')
+
 const loginPage = new LoginPage()
 const dashboardPage = new DashboardPage()
 const { inputValues, expectedValues } = testData;
@@ -19,7 +17,7 @@ describe('OrangeHRM login tests - @loginOHRM', () => {
         await loginPage.login(inputValues.username, inputValues.password);
         let pageTitle = await dashboardPage.pageTitle.getText();
         let expectedPageTitle = expectedValues.pageTitle;
-        await expect(pageTitle).toBe(expectedPageTitle);
+        await expectWDIO(pageTitle).toBe(expectedPageTitle);
         log.info("Login into the account successfully");
     } );
     

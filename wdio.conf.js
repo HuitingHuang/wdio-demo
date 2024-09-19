@@ -1,5 +1,9 @@
 import allure from 'allure-commandline'
 import RerunService from 'wdio-rerun-service';
+import logger from '@wdio/logger';
+const log = logger('myTests');
+import { expect as expectWDIO } from '@wdio/globals';
+import { expect as expectChai } from 'chai'
 
 export const config = {
     //
@@ -102,7 +106,7 @@ export const config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    // baseUrl: 'http://localhost:8080',
+    baseUrl: 'https://opensource-demo.orangehrmlive.com',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -214,8 +218,11 @@ export const config = {
      * @param {Array.<String>} specs        List of spec file paths that are to be run
      * @param {object}         browser      instance of created browser/device session
      */
-    // before: function (capabilities, specs) {
-    // },
+    before: function (capabilities, specs) {
+        global.log = log;
+        global.expectWDIO = expectWDIO;
+        global.expectChai = expectChai;
+    },
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {string} commandName hook command name

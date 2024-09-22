@@ -4,7 +4,7 @@ import { testData } from './login.normal.testData.js'
 
 const loginPage = new LoginPage()
 const dashboardPage = new DashboardPage()
-const { inputValues, expectedValues } = testData;
+const { inputValues, expectedValues } = testData
 
 describe('OrangeHRM login tests - @loginOHRM', () => {
     

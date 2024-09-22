@@ -1,8 +1,8 @@
 import allure from 'allure-commandline'
-import RerunService from 'wdio-rerun-service';
-import logger from '@wdio/logger';
-const log = logger('myTests');
-import { expect as expectWDIO } from '@wdio/globals';
+import RerunService from 'wdio-rerun-service'
+import logger from '@wdio/logger'
+const log = logger('myTests')
+import { expect as expectWDIO } from '@wdio/globals'
 import { expect as expectChai } from 'chai'
 
 export const config = {
@@ -26,9 +26,7 @@ export const config = {
     //
     // The path of the spec files will be resolved relative from the directory of
     // of the config file unless it's absolute.
-    // e.g.[
-        //'./test/specs/**/*.js'
-    //],
+    // e.g.['./test/specs/**/*.js'],
     specs: process.env.SPEC_FILES && process.env.SPEC_FILES.length > 0 ? process.env.SPEC_FILES.split(',') : ['./test/specs/**/*.test.js'],
     // Patterns to exclude.
     exclude: process.env.EXCLUDE_FILES && process.env.EXCLUDE_FILES.length > 0 ? process.env.EXCLUDE_FILES.split(',') : [],

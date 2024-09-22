@@ -2,7 +2,7 @@ import { LoginPage } from '../../../pageobjects/login.page.js'
 import { testData } from './login.error.testData.js'
 
 const loginPage = new LoginPage()
-const {inputValues, expectedValues} = testData;
+const {inputValues, expectedValues} = testData
 
 describe('OrangeHRM login tests - @loginOHRM', () => {
 

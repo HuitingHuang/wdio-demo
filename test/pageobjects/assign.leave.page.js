@@ -13,6 +13,10 @@ export class AssignLeavePage extends Page {
         return $('.oxd-input-field-error-message')
     }
 
+    get dropdownList(){
+        return $("//div[@role='listbox']")
+    }
+
     async open(username, password) {
         await super.loginToPage('/web/index.php/leave/assignLeave', username, password);
     }
